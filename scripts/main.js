@@ -26,16 +26,16 @@ function imageFromThumb(thumb) {
 function titleFromThumb(thumb) {
     'use strict';
     return thumb.getAttribute('data-image-title');
-  }
+}
 
 function setDetailsFromThumb(thumb) {
     setDetails(imageFromThumb(thumb), titleFromThumb(thumb));
 }
 
-function addThumbClickHandler(thumb) { 
+function addThumbClickHandler(thumb) {
     'use strict';
 
-    thumb.addEventListener('click', function(event) {
+    thumb.addEventListener('click', function (event) {
         event.preventDefault();
         console.log('clicked');
         setDetailsFromThumb(thumb);
@@ -43,7 +43,7 @@ function addThumbClickHandler(thumb) {
     });
 }
 
-function getThumbnailsArray() { 
+function getThumbnailsArray() {
     'use strict';
     var thumbnails = document.querySelectorAll(THUMBNAIL_LINK_SELECTOR);
     var thumbnailArray = [].slice.call(thumbnails);
@@ -61,17 +61,17 @@ function showDetails() {
     var frame = document.querySelector(DETAIL_FRAME_SELECTOR);
     document.body.classList.remove(HIDDEN_DETAIL_CLASS);
     frame.classList.add(TINY_EFFECT_CLASS);
-    setTimeout(function() {
+    setTimeout(function () {
         frame.classList.remove(TINY_EFFECT_CLASS);
     }, 50);
 }
 
-function addKeyPressHandler() { 
+function addKeyPressHandler() {
     'use strict';
-    document.body.addEventListener('keyup', function(event) {
+    document.body.addEventListener('keyup', function (event) {
         event.preventDefault();
         console.log(event.keyCode);
-        if (event.keyCode === ESC_KEY) { 
+        if (event.keyCode === ESC_KEY) {
             hideDetails();
         }
     });
